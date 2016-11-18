@@ -1,0 +1,2 @@
+#!/bin/sh
+rsync -avz -t root@pts:/opt/hook ./
