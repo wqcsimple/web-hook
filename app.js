@@ -13,6 +13,7 @@ app.use(Core.errorHandler);
 app.use(Core.notFoundHandler);
 
 function execute(context, command) {
+    Log.i(command);
     Util.execute(command)
         .then(() => { context.finish('done') })
         .catch(e => { context.finish({ error: Util.getFormattedJson(e) }) })
@@ -20,10 +21,11 @@ function execute(context, command) {
 }
 
 var api = {
-    '~/launch/boot-pts-api':                            [context => execute(context, '/opt/script/boot_pts_api')],
-    '~/launch/boot-pts-admin-web':                      [context => execute(context, '/opt/script/boot_pts_admin_web')],
-    '~/launch/boot-pts-wx-h5':                          [context => execute(context, '/opt/script/boot_pts_wx_h5')],
-    '~/launch/boot-pts-wx-api':                         [context => execute(context, '/opt/script/boot_pts_wx_api')],
+    '~/launch/boot-test-api':                            [context => execute(context, '/opt/script/boot_test_api')],
+    '~/launch/boot-gh-api':                            [context => execute(context, '/opt/script/boot_gh_web')],
+    '~/launch/boot-video-view-web':                            [context => execute(context, '/opt/script/boot_video_view_web')],
+    '~/launch/boot-lexiang-web':                            [context => execute(context, '/opt/script/boot_lexiang_web')],
+    '~/launch/boot_whis_blog':                            [context => execute(context, '/opt/script/boot_whis_blog')],
 };
 
 Core.install(router, api);
