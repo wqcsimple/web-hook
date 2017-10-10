@@ -12,6 +12,17 @@ app.use(router);
 app.use(Core.errorHandler);
 app.use(Core.notFoundHandler);
 
+var api = {
+    '~/launch/boot-test-api':                           [context => execute(context, '/opt/script/boot_test_api')],
+    '~/launch/boot-gh-api':                             [context => execute(context, '/opt/script/boot_gh_web')],
+    '~/launch/boot-video-view-web':                     [context => execute(context, '/opt/script/boot_video_view_web')],
+    '~/launch/boot-lexiang-web':                        [context => execute(context, '/opt/script/boot_lexiang_web')],
+    '~/launch/boot_whis_blog':                          [context => execute(context, '/opt/script/boot_whis_blog')],
+    '~/launch/test':                                    [context => executeAndReturn(context, 'ls /Users/whis/Workspace/whis')],
+};
+
+Core.install(router, api);
+
 function execute(context, command) {
     Log.i(command);
     Util.execute(command)
@@ -36,18 +47,6 @@ function executeAndReturn(context, command) {
             context.finish({error: Util.getFormattedJson(e)})
         })
 }
-
-var api = {
-    '~/launch/boot-test-api': [context => execute(context, '/opt/script/boot_test_api')],
-    '~/launch/boot-gh-api': [context => execute(context, '/opt/script/boot_gh_web')],
-    '~/launch/boot-video-view-web': [context => execute(context, '/opt/script/boot_video_view_web')],
-    '~/launch/boot-lexiang-web': [context => execute(context, '/opt/script/boot_lexiang_web')],
-    '~/launch/boot_whis_blog': [context => execute(context, '/opt/script/boot_whis_blog')],
-    '~/launch/test': [context => executeAndReturn(context, 'ls /Users/whis/Workspace/whis')],
-};
-
-Core.install(router, api);
-
 
 var server = app.listen(50000, function () {
     var host = server.address().address;
