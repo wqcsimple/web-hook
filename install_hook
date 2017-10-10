@@ -5,10 +5,9 @@ then
     echo "supervisor installed"
 else
     yum install -y supervisor
+    systemctl start supervisord
+    systemctl enable supervisord
 fi
-
-systemctl start supervisord
-systemctl enable supervisord
 
 rsync -avz -t ./hook.ini /etc/supervisord.d/hook.ini
 
