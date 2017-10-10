@@ -12,7 +12,6 @@ module.exports = data => `
     * {
         margin: 0;
         padding: 0;
-        font-size: 14px;
         box-sizing: border-box;
         -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
         -webkit-touch-callout: none;
