@@ -1,0 +1,15 @@
+#!/bin/sh
+
+if rpm -q supervisor
+then
+    echo "supervisor installed"
+else
+    yum install -y supervisor
+fi
+
+systemctl start supervisord
+systemctl enable supervisord
+
+rsync -avz -t ./hook.ini /etc/supervisord.d/hook.ini
+
+systemctl restart supervisord

@@ -1,4 +1,0 @@
-#!/bin/sh
-
-#rsync -avz -t ./ root@ali-main:/opt/hook
-rsync -avz -t ./hook.ini /etc/supervisord.d/hook.ini
