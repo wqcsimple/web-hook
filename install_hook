@@ -1,5 +1,13 @@
 #!/bin/sh
 
+if rpm -q nodejs
+then
+    echo "nodejs installed"
+else
+    curl --silent --location https://rpm.nodesource.com/setup_6.x | bash -
+    yum install -y nodejs
+fi
+
 if rpm -q supervisor
 then
     echo "supervisor installed"
