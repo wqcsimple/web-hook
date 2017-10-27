@@ -19,4 +19,6 @@ fi
 
 rsync -avz -t ./hook.ini /etc/supervisord.d/hook.ini
 
+npm install
+
 systemctl restart supervisord
