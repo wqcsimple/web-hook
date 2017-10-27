@@ -4,7 +4,7 @@ if rpm -q nodejs
 then
     echo "nodejs installed"
 else
-    curl --silent --location https://rpm.nodesource.com/setup_6.x | bash -
+    curl --silent --location https://rpm.nodesource.com/setup_7.x | bash -
     yum install -y nodejs
 fi
 
