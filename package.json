@@ -9,7 +9,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "node-api-base" : "git+https://github.com/zdix/node-api-best-practice.git#1.0.1",
     "body-parser": "^1.15.2",
     "express": "^4.14.0",
     "ioredis": "^2.4.0",
